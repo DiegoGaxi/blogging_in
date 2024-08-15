@@ -1,0 +1,82 @@
+@import "variables";
+// Estilos generales
+
+html {
+  width: 100%;
+}
+
+body {
+  color: $secondary-color;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+  height: 100%;
+  margin: 0; /* Elimina el margen predeterminado del cuerpo */
+}
+
+body::-webkit-scrollbar {
+  width: 0; /* Ocultar la barra de desplazamiento en navegadores webkit */
+}
+
+main {
+  overflow-x: hidden; /* Evita el desplazamiento horizontal en el contenido principal */
+  overflow-y: hidden;
+}
+
+main::-webkit-scrollbar {
+  width: 0; /* Ocultar la barra de desplazamiento en navegadores webkit */
+}
+
+.container-main {
+  background-color: $primary-light-light-color;
+  padding: 150px 130px;
+  height: 100vh;
+
+  @media (max-width: $breakpoint-phone) {
+    padding: 115px 20px;
+  }
+
+  @media (min-width: ($breakpoint-phone + 1)) and (max-width: $breakpoint-tablet) {
+    padding: 115px 40px;
+  }
+
+  @media (min-width: ($breakpoint-tablet + 1)) and (max-width: $breakpoint-desktop) { 
+    padding: 150px 60px;
+  }
+}
+
+.wrap-reverse-mobile {
+  @media (max-width: $breakpoint-phone) {
+    flex-direction: column-reverse;
+  }
+}
+ 
+h1, h2, h3, h4 {
+  color: $secondary-color;
+}
+
+a {
+  text-decoration: none;
+  &.active {
+    text-decoration: underline 3px $tertiary-light-color;
+  }
+}
+
+.colored-effect {
+  background: linear-gradient(120deg, $primary-color, $tertiary-color);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  width: fit-content;
+}
+
+.font-effect {
+  font-style: italic;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: $secondary-color;
+  color: transparent;
+}
+
+.contrast-color{
+  color: $tertiary-color;
+}

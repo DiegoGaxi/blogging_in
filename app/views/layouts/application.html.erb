@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blogging In</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <meta name="turbo-refresh-method" content="morph">
+    <meta name="turbo-prefetch" content="false">
+  </head>
+
+  <body>
+    <%= render partial: "header" %>
+    
+    <% if alert %>
+      <%= render  partial: 'shared/toast', locals: { errors: alert, clase: 'errors' } %>
+    <% end %>
+    
+    <% if notice %>
+      <%= render  partial: 'shared/toast', locals: { errors: notice, clase: '' } %>
+    <% end %>
+
+    <%= turbo_frame_tag "main", refresh: "morph" do %>
+      <%= yield %>
+    <% end %>
+
+    <%= render partial: "footer" %>
+  </body>
+</html>

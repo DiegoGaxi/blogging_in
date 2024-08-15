@@ -1,0 +1,11 @@
+<div class="notification  <%= clase %> " data-controller="toast">
+    <div class="toast-content">
+      <% if errors.respond_to?('each') %>
+        <% errors.each do |error| %>
+          <p class="white-text"><%= error.full_message %></p>
+        <% end %>
+      <% else %>
+        <%= errors %>
+      <% end %>
+    </div>
+  </div>

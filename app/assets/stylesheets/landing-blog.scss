@@ -1,0 +1,70 @@
+// Estilos generales para el blog
+.blog-card {
+    border: 1px solid #ddd;
+    border-radius: 0.375rem;
+    transition: box-shadow 0.3s ease;
+  
+    &:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  .search-form {
+    .form-control {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  
+    .btn-primary {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+  
+  .card-text {
+    color: #6c757d;
+  }
+  
+  .btn-outline-primary {
+    border-color: #007bff;
+    color: #007bff;
+    
+    &:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+  }
+  
+  .text-dark {
+    color: #212529 !important;
+  }
+  
+  .text-muted {
+    color: #6c757d;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  // Estilos para la paginación
+  .pagination {
+    .page-item {
+      &.active .page-link {
+        background-color: #007bff;
+        border-color: #007bff;
+      }
+  
+      .page-link {
+        border: 1px solid #ddd;
+        border-radius: 0.375rem;
+        padding: 0.5rem 0.75rem;
+      }
+    }
+  }
+  

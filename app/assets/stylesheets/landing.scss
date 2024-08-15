@@ -1,0 +1,348 @@
+@import "variables";
+
+.call-to-action {
+  background-color: $primary-light-light-color;
+  padding: 30rem 140px;
+  align-content: center;
+
+  .call-to-action-icons{
+    display: flex;
+    .call-to-action-icon-1 {
+      width: 30px;
+      height: 30px;
+      position: relative;
+      left: 0dvw;
+      top: 3dvh;
+      background: url('visual-effects.png') no-repeat center center;
+      background-size: contain;
+    }
+    .call-to-action-icon-2 {
+      width: 30px;
+      height: 30px;
+      position: relative;
+      left: 1dvw;
+      top: 3dvh;
+      background: url('cost-effectiveness.png') no-repeat center center;
+      background-size: contain;
+    }
+    .call-to-action-icon-3 {
+      width: 500px;
+      height: 500px;
+      position: relative;
+      left: 45dvw;
+      top: -20dvh;
+      z-index: -1;
+      background: url('planets.png') no-repeat center center;
+      background-size: contain;
+    }
+  }
+
+  .call-to-action-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .text-section {
+      width: 50dvw;
+
+      h1 {
+        font-size: 3.2em;
+        font-weight: 550;
+      }
+
+      p {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+      }
+    }
+
+    .image {
+      background: url('thumbs-up.png') no-repeat center center;
+      background-size: cover;
+      width: 300px;
+      height: 300px;
+    }
+  }
+}
+
+.main-content {
+  .about{
+    margin-top: 1dvh;
+  }
+
+  .values{
+    width: 100%;
+    max-height: 100dvh;
+    height: auto;
+    background-color: $primary-light-light-color;
+    text-align: center;
+
+    .text-section {
+      padding: 80px 140px;
+      text-align: center;
+    }
+
+    .values-cards {
+      text-align: -webkit-center;
+      .values-card {
+        width: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        text-indent: initial;
+        justify-content: end;
+
+        .values-main-photo{
+          background: url('works-to.png') no-repeat center center;
+          width: 100%;
+          height: 250px;
+        }
+        .values-photo{
+          background: url('thumbs-up.png') no-repeat center center;
+          background-size: cover;
+          width: 50px;
+          height: 50px;
+        }
+        .values-content{
+          margin: 30px;
+          text-align: center;
+          font-size: 1.2em;
+          margin-bottom: 20px;
+          width: 170px;
+        }
+      }
+    }
+  }
+
+  .about, .latest-blogs {
+    padding: 80px 140px;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 6rem;
+
+    .text-section {
+      margin: 0 0 80px 0;
+    }
+
+    .about-image{
+      text-align: -webkit-center;
+      .image{
+        background: url('thumbs-up.png') no-repeat center center;
+        background-size: cover;
+        width: 300px;
+        height: 300px;
+        justify-content: center;
+      }
+    }
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    .service-cards {
+      display: flex;
+      justify-content: space-around;
+
+      .service-card {
+        background-color: $primary-light-light-color;
+        border-radius: 8px;
+        padding: 20px;
+        width: 30%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        h3 {
+          margin-top: 20px;
+        }
+
+        p {
+          font-size: 1em;
+        }
+
+        .icon {
+          width: 40px;
+          height: 40px;
+          fill: $secondary-color;
+        }
+      }
+    }
+
+    .blog-cards {
+      justify-content: space-around;
+      height: 100%;
+
+      .blog-card {
+        background-color: $primary-light-light-color;
+        border-radius: 8px;
+        padding: 20px;
+        width: 500px;
+        max-height: 250px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: left;
+      }
+    }
+  }
+}
+
+//phone
+@media (max-width: $breakpoint-phone) {
+  .call-to-action {
+    padding: 130px 45px;
+    height: 100dvh;
+    
+    .call-to-action-content {
+
+      .text-section {
+          width: 100dvw;
+          font-size: 0.9em;
+        h1 {
+          font-size: 2em;
+        }
+
+        p {
+          font-size: 1em;
+        }
+      }
+
+      .image {
+        width: 100%;
+        height: 200px;
+        margin-top: 20px;
+      }
+    }
+
+    .call-to-action-icons{
+      .call-to-action-icon-1 {
+        width: 30px;
+        height: 30px;
+        position: relative;
+        background: url('visual-effects.png') no-repeat center center;
+        background-size: contain;
+        z-index: -1;
+      }
+      .call-to-action-icon-2 {
+        width: 30px;
+        height: 30px;
+        position: relative;
+        background: url('cost-effectiveness.png') no-repeat center center;
+        background-size: contain;
+        z-index: -1;
+      }
+      .call-to-action-icon-3 {
+        width: 80dvw;
+        height: clamp(200px, 100%, 500px);
+        position: absolute;
+        left: 20dvw;
+        top: -3dvh;
+        z-index: -1;
+        background: url('planets.png') no-repeat center center;
+        background-size: contain;
+      }
+    }
+  }
+  .main-content {
+    .about, .latest-blogs {
+      padding: 80px 10px;
+    }
+  }
+  .blog-cards{
+    .blog-card {
+      background-color: $primary-light-light-color;
+      border-radius: 8px;
+      padding: 20px;
+      width: 500px;
+      max-height: 100% !important;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
+  }
+}
+
+//tablet
+@media (min-width: ($breakpoint-phone + 1)) and (max-width: $breakpoint-tablet) {
+  .call-to-action {
+    padding: 130px 60px;
+
+    .text-section {
+      font-size: clamp(0.7em, 1.8vw, 2vw);
+      width: 51dvw !important;
+    }
+    .call-to-action-icons{
+
+      .call-to-action-icon-3 {
+        width: 45dvw;
+        height: clamp(200px, 100%, 500px);
+        position: absolute;
+        left: 55dvw;
+        top: -5dvh;
+        z-index: -1;
+        background: url('planets.png') no-repeat center center;
+        background-size: contain;
+      }
+    }
+  }
+}
+
+//1080 desktop
+@media (min-width: ($breakpoint-tablet + 1)) and (max-width: $breakpoint-desktop) {
+  .call-to-action {
+    padding: 190px 110px;
+
+    .text-section {
+      font-size: clamp(0.6em, 1.0vw, 1.1vw);
+      width: 45dvw !important;
+
+      h1 {
+        font-size: 3em;
+        font-weight: 550;
+      }
+
+      h2 {
+        font-size: 2.7em;
+        font-weight: 550;
+      }
+    }
+    .call-to-action-icons{
+      .call-to-action-icon-3 {
+        width: 40dvw;
+        height: clamp(200px, 100%, 500px);
+        position: absolute;
+        left: 60dvw;
+        top: 10dvh;
+        z-index: -1;
+        background: url('planets.png') no-repeat center center;
+        background-size: contain;
+      }
+    }
+  }
+}
+
+//4k desktop
+@media (min-width: ($breakpoint-desktop + 1)) {
+  .call-to-action {
+    padding: 37dvh 7dvw;
+
+    .text-section {
+      font-size: 1.4rem;
+      width: 40dvw;
+    }
+    .call-to-action-icons{
+      .call-to-action-icon-3 {
+        width: 40dvw;
+        height: clamp(200px, 100%, 500px);
+        position: absolute;
+        left: 60dvw;
+        top: 20dvh;
+        z-index: -1;
+        background: url('planets.png') no-repeat center center;
+        background-size: contain;
+      }
+    }
+  }
+}

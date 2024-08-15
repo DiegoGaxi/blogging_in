@@ -1,0 +1,19 @@
+@import "./variables";
+.notification {
+  position: absolute;
+  z-index: 999999999999;
+  bottom: 3rem;
+  right: 2rem;
+  width: 300px;
+  padding: 15px;
+  background-color: $success-color;
+  color: $muted-color;
+  border-radius: 5px;
+  animation: slideInUp 0.5s ease-in-out;
+  -webkit-animation: slideInUp 0.5s ease-in-out;
+}
+
+.errors {
+  background-color: $error-color;    
+  color: $muted-color;
+}

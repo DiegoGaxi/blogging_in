@@ -1,0 +1,32 @@
+@import "./variables";
+
+footer {
+  z-index: 100000000;
+  position: relative;
+  bottom: 0px;
+  background-color: $secondary-color;
+  padding-top: 3px;
+}
+
+footer p {
+  padding-top: 10px;
+  font-size: 14px;
+  color: $tertiary-color !important;
+}
+
+footer div .icon-button {
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  box-shadow: none;
+  background-color: $muted-color;
+  margin: 2px 5px 2px 5px;
+
+  &:hover {
+    background-color: $muted-color;
+    i {
+      transform: scale(1.15);
+      transition: transform 0.3s ease;
+    }
+}
+}

@@ -1,0 +1,30 @@
+$error-light-color: #ff6c6c;
+$error-color: #BA3B46;
+$success-color: #61C9A8;
+
+$primary-color: #7479c2;
+$primary-light-color: rgba(#7479c2, 0.160);
+$primary-light-light-color: rgba(#7479c2, 0.080);
+
+$secondary-color: #1d1c1c;
+$secondary-light-color: rgba(#1d1c1c, 0.160);
+
+$tertiary-color: #B0B0B0;
+$tertiary-light-color: rgba(#B0B0B0, 0.160);
+
+$muted-color: #FEFCFB;
+$muted-light-color: rgba(#FEFCFB, 0.160);
+
+$white-color: #ffffff;
+
+$primary-gradient: linear-gradient(to right, rgba($secondary-color, 0.65), rgba($primary-color, 0.65));
+$secondary-gradient: linear-gradient(to left, rgba($tertiary-color, 0.65), rgba($secondary-color, 0.65));
+$secondary-gradient-bottom: linear-gradient(to bottom, rgba($tertiary-color, 0.45), rgba($secondary-color, 0.45));
+$blue: #5581f3;
+$error-light-color: #ff6c6c;
+$error-color: #BA3B46;
+$success-color: #61C9A8;
+
+$breakpoint-phone: 576px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1920px;

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Works To - Admin</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <meta name="turbo-refresh-method" content="morph">
+    <meta name="turbo-prefetch" content="false">
+  </head>
+
+  <body>
+    <main>
+      <%= render partial: "header" %>
+      <% if alert %>
+        <%= render  partial: 'shared/toast', locals: { errors: alert, clase: 'errors' } %>
+      <% end %>
+      <% if notice %>
+        <%= render  partial: 'shared/toast', locals: { errors: notice, clase: '' } %>
+      <% end %>
+      
+      <%= render partial: "admin/sidebar" %>
+      <%= yield %>
+      
+      <%= render partial: "footer" %>
+    </main>
+  </body>
+</html>

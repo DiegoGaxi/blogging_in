@@ -1,0 +1,32 @@
+default: &default
+  adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 10 } %>
+  timeout: 5000
+
+development:
+  <<: *default
+  database: blogging_in_dev
+  username: postgres
+  password: postgres
+
+test:
+  <<: *default
+  database: blogging_in_test
+  username: postgres
+  password: postgres
+  # username: ec2-user
+  # password: 
+
+staging:
+  <<: *default
+  database: blogging_in_stage
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: <%= ENV['DATABASE_HOST'] %>
+
+production:
+  <<: *default
+  database: blogging_in_prod
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: <%= ENV['DATABASE_HOST'] %>

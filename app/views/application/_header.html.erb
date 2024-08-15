@@ -1,0 +1,28 @@
+<header data-controller="navbar">
+    <nav class="navbar" data-navbar-target="nav">
+        <%= link_to "", root_path, class: "navbar-brand" %>
+        <button class="navbar-toggle" data-navbar-target="toggler", aria-label="Toggle Navbar">
+            <div class="navbar-toggle-icon"></div>
+        </button>
+        <ul class="navbar-nav closed ml-auto" data-navbar-target="navbar">
+            <li class="nav-item">
+                <%= link_to "Inicio", root_path, class: "nav-link #{ 'active' if current_page?('/') }" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to "Blogs", blog_landing_index_path, class: "nav-link #{ 'active' if current_page?(blog_landing_index_path) }" %>
+            </li>
+            <% if user_signed_in? && current_user.admin? %>
+                <li class="nav-item">
+                    <%= link_to "Administracion", admin_root_path, class: "nav-link" %>
+                </li>
+            <% end %>
+            <div class="auth-button">
+                <% if user_signed_in? %>
+                    <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "primary-button ml-2" %>
+                <% else %>
+                    <%= link_to "Log in", new_user_session_path, class: "primary-button ml-2" %>
+                <% end %>
+            </div>
+        </ul>
+    </nav>
+</header>

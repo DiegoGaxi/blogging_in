@@ -1,0 +1,89 @@
+<%= turbo_frame_tag "main" do %>
+    <main class="container-main">
+        <div class="row">
+            <div class="font-effect"><h1>Blogs</h1></div>
+            <div class="row wrap-reverse-mobile">
+
+                <div class="col-sm-8">
+                    <!-- Búsqueda de Blogs -->
+                    <div class="mb-4">
+                        <%= form_with url: blog_landing_index_path, method: :get, class: "search-form", data: { turbo_frame: "main" } do |form| %>
+                            <%= form.hidden_field :category, value: params[:category] %>
+                            <div class="input-group">
+                                <%= form.text_field :q, value: params[:q], placeholder: "Buscar blogs...", class: "form-control" %>
+                                <button class="primary-button" type="submit">Buscar</button>
+                            </div>
+                        <% end %>
+                    </div>
+
+                    <!-- Blog Actual -->
+                    <% if @showing_blog.present? %>
+                        <article class="card shadow-sm blog-card">
+                            <div class="card-body">
+                                <h5 class="card-title mb-1">
+                                    <%= @showing_blog.title.camelcase %>
+                                </h5>
+                                <p class="card-text text-muted mb-3">
+                                    Publicado el <%= @showing_blog.created_at.strftime('%d de %B de %Y') %>
+                                </p>
+                                <p class="card-text">
+                                    <%= @showing_blog.content.truncate(300) %>
+                                </p>
+                                <div class="d-flex align-items-center mt-3">
+                                    <button class="btn btn-outline-primary me-2">
+                                    <i class="bi bi-arrow-up"></i>
+                                    </button>
+                                    <span><%= @showing_blog.likes_count %> votos</span>
+                                </div>
+                            </div>
+                        </article>
+                    <% end %>
+                    
+                    <!-- Mostrar Blogs -->
+                    <% if @blogs.present? %>
+                        <% @blogs.each do |blog| %>
+                            <article class="card mb-4 shadow-sm blog-card">
+                            <div class="card-body">
+                                <h5 class="card-title mb-1">
+                                    <%= link_to blog.title, blog_landing_index_path(id: blog.id), class: "text-dark" %>
+                                </h5>
+                                <p class="card-text text-muted mb-3">
+                                    Publicado el <%= blog.created_at.strftime('%d de %B de %Y') %>
+                                </p>
+                                <p class="card-text">
+                                    <%= blog.content.truncate(300) %>
+                                </p>
+                                <div class="d-flex align-items-center mt-3">
+                                    <button class="icon-button me-2">
+                                        <i class="thumbs-up-icon"></i>
+                                    </button>
+                                    <span><%= blog.likes_count %> votos</span>
+                                </div>
+                            </div>
+                            </article>
+                        <% end %>
+                        <%= render partial: 'shared/pagy', locals: { pagy: @pagy_blogs } %>
+                    <% else %>
+                        <p class="text-center">No se encontraron resultados.</p>
+                    <% end %>
+                </div>
+            
+                <!-- Barra Lateral para Categorías -->
+                <div class="col-sm-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Categorías</h5>
+                            <ul class="list-unstyled">
+                            <% @categories.each do |category| %>
+                                <li class="mb-2">
+                                    <%= link_to category.name, blog_landing_index_path(category: category.id), class: "text-decoration-none text-dark d-flex justify-content-between" %>
+                                </li>
+                            <% end %>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+<%end%>

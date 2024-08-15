@@ -1,0 +1,135 @@
+es-MX:
+  default_blank_message: &default_blank_message Campo obligatorio.
+  shared_attributes: &shared_attributes
+    first_name:
+      blank: *default_blank_message
+    paternal_surname:
+      blank: *default_blank_message
+    maternal_surname:
+      blank: *default_blank_message
+    state:
+      blank: *default_blank_message
+    birth_date:
+      blank: *default_blank_message
+    email:
+      blank: *default_blank_message
+      invalid: Este correo electrónico no es válido. Asegúrate de ingresar el correcto.
+      taken: Este correo electrónico ya ha sido registrado.
+      not_found: ¡Ups! No existe ninguna cuenta registrada con este correo.
+    password:
+      blank: *default_blank_message
+    mobile_phone:
+      blank: *default_blank_message
+      invalid: Este número celular no es válido. Asegúrate de ingresar uno correcto.
+      taken: Este número de celular ya ha sido registrado.
+      wrong_length:
+        one: Debe ser 1 carácter de longitud
+        other: Debe ser %{count} caracteres de longitud
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            <<: *shared_attributes
+  actives:
+    true: Activo
+    false: Inactivo
+  users:
+    roles:
+      blogger: Blogger
+      admin: Administrador
+  registrations:
+    confirmation:
+      title: ¡Muy bien!
+      body: Creaste tu cuenta en Blogging In.
+  genders:
+    male: Hombre
+    female: Mujer
+  civil_statuses:
+    married: Casado(a)
+    single: Soltero(a)
+    divorced: Divorciado(a)
+    consensual_union: Viudo(a)
+    widowed: Unión libre
+  studies_levels:
+    elementary: Primaria
+    junior_high: Secundaria
+    high_school: Preparatoria
+    graduate: Licenciatura
+    postgraduate: Maestría
+  live_in_location_sinces:
+    less_than_one_year: Menos de 1 año
+    one_year: 1 año
+    two_years: 2 años
+    three_years: 3 años
+    four_years: 4 años
+    five_years: 5 años
+    more_than_five_years: Más de 5 años
+  housing_types:
+    owned: Propia
+    rent: Rentada
+    borrowed: Prestada
+    family: Casa de familiar
+  document_types:
+    ine_front: INE frente
+    ine_back: INE reverso
+    drivers_licence_back: Licencia reverso
+    drivers_licence_front: Licencia frente
+    curp: CURP
+    proof_of_address: Comprobante de domicilio
+    rfc_registration_certificate: Constancia de situación fiscal
+    platform_profile: Perfil
+    earnings: Ganancias de 4 semanas consecutivas en los últimos 3 meses
+  date:
+    abbr_day_names:
+    - Dom
+    - Lun
+    - Mar
+    - Mié
+    - Jue
+    - Vie
+    - Sáb
+    abbr_month_names:
+    - 
+    - ene
+    - feb
+    - mar
+    - abr
+    - may
+    - jun
+    - jul
+    - ago
+    - sep
+    - oct
+    - nov
+    - dic
+    day_names:
+    - domingo
+    - lunes
+    - martes
+    - miércoles
+    - jueves
+    - viernes
+    - sábado
+    formats:
+      default: "%-d/%-m/%Y"
+      long: "%-d de %B de %Y"
+      short: "%-d de %b"
+    month_names:
+    - 
+    - enero
+    - febrero
+    - marzo
+    - abril
+    - mayo
+    - junio
+    - julio
+    - agosto
+    - septiembre
+    - octubre
+    - noviembre
+    - diciembre
+    order:
+    - :day
+    - :month
+    - :year

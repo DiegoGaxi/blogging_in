@@ -1,0 +1,45 @@
+<%= turbo_frame_tag 'component' do %>
+   <div class="container mt-5">
+      <h1>Gestion de Blogs</h1>
+      <div class="mb-3">
+         <%= button_to "Nuevo Blog", new_admin_blog_path, method: :get , class: "primary-button", data: { turbo: false } %>
+      </div>
+      <div class="row align-items-center mt-5 mb-5" style="background-color: #fff;border-radius: 20px;padding: 10px 20px;font-size: 0.875rem;">
+         Registros encontrados:  <%= @pagy_blogs.count %> 
+      </div>
+      <% if @blogs.empty? %>
+         <h1>No se encontraron blogs</h1>
+      <% else %>
+
+         <div class="table-widget">
+            <caption>
+               <h5>Blogs</h5>
+            </caption>
+            <table class="">
+               <thead>
+                  <tr>
+                     <th>Titulo</th>
+                     <th>Fecha</th>
+                     <th colspan="2" class="text-center">Acciones</th>
+                  </tr>
+               </thead>
+               <tbody id="team-member-rows">
+                  <% @blogs.each do |blog| %>
+                     <tr>
+                        <td><%= blog.title %></td>
+                        <td><%= blog.created_at.strftime("%d/%m/%Y") %></td>
+                        <td class="row text-center">
+                           <%= link_to "Editar", edit_admin_blog_path(blog), class: "icon col-6", data: { turbo: false } %>
+                           <%= button_to "Eliminar", admin_blog_path(blog), method: :delete, class: "icon", form_class: "col-6", data: { confirm: "¿Desea eliminar este blog?", turbo: false } %>
+                        </td>
+                     </tr>
+                  <% end %>
+               </tbody>
+            </table>
+         </div>
+         <div class="mt-5 mx-auto">
+            <%= render partial: 'shared/pagy', locals: { pagy: @pagy_blogs } %>
+         </div>
+      <% end %>
+   </div>
+<% end %>

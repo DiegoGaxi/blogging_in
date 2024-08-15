@@ -1,0 +1,24 @@
+<div class="container">
+   <div class="mx-auto card-contact-me w-50">
+      <div class="row">
+         <div class="col">
+            <h5>Nombre</h5>
+            <p class="m-2"><%=@user.first_name%></p>
+         </div>
+         <div class="col">
+            <h5>Apellido</h5>
+            <p class="m-2"><%=@user.paternal_surname%></p>
+         </div>
+         <div class="col-12 mt-3">
+            <div>Fecha de Contacto: </div>
+            <p class="m-2"><%=@user.created_at.strftime("%d/%m/%Y")%></p>
+         </div>
+      </div>
+      <div class="row mt-4">
+         <div class="col">
+            <h5>Email</h5>
+            <p class="m-2"><%=@user.email%></p>
+         </div>
+      </div>
+   </div>
+</div>

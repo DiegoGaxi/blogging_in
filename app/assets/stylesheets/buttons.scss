@@ -1,0 +1,166 @@
+@import "./variables";
+
+.primary-button {
+  background-color: $primary-color;
+  color: $white-color;
+  padding: 10px 20px;
+  font-weight: 550;
+  border-radius: 7px;
+  border: none;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.3);
+  text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.6);
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+  max-width: 170px;
+  text-align: center;
+  
+  &:hover {
+    background-color: darken($primary-color, 10%);
+    color: $white-color;
+    transform: scale(1.02);
+    transition: transform 0.07s ease;
+    text-shadow: none;
+  }
+
+  &:hover:disabled {
+    filter: blur(0.6px);
+    cursor: not-allowed;
+    transform: scale(1);
+  }
+}
+
+.secondary-button {
+  background-color: $secondary-color;
+  color: $muted-color;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    background: $secondary-gradient-bottom;
+    background-color: $tertiary-color;
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+  }
+
+  &:hover:disabled {
+    filter: blur(0.6px);
+    cursor: not-allowed;
+    transform: scale(1);
+  }
+}
+
+.tertiary-button {
+  background-color: $tertiary-color;
+  color: $muted-color;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    background: $secondary-gradient-bottom;
+    background-color: $tertiary-color;
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+  }
+
+  &:hover:disabled {
+    filter: blur(0.6px);
+    cursor: not-allowed;
+    transform: scale(1);
+  }
+}
+
+.form-select {
+  font-family: "Brutalista-Bold" !important;
+  font-weight: bold;
+  color: $secondary-color !important;
+  padding: 10px 30px 14px 10px;
+  border-radius: 8px;
+  background-color: $muted-color !important;
+}
+
+.icon-button {
+  width: 43px;
+  height: 43px;
+  border-radius: 3px;
+  background-color: transparent;
+  color: $muted-color;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+  &:hover {
+    background-color: $tertiary-color;
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+  }
+
+  .left-icon {
+    background-image: url("icons-medium-left.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 25px;
+    height: 25px;
+  }
+  .right-icon {
+    background-image: url("icons-medium-right.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 25px;
+    height: 25px;
+  }
+  .today-icon {
+    background-image: url("today-icon.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 25px;
+    height: 25px;
+  }
+  .github-icon {
+    background-image: url("github-icon-50.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 25px;
+    height: 25px;
+  }
+  .linkedin-icon {
+    background-image: url("linkedin-icon-24.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 25px;
+    height: 25px;
+  }
+  .mail-icon {
+    background-image: url("mail-icon-24.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 25px;
+    height: 25px;
+  }
+  .thumbs-up-icon {
+    background-image: url("thumbs-up.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 25px;
+    height: 25px;
+  }
+}
