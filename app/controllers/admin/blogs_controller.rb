@@ -18,9 +18,9 @@ module Admin
       begin
         @blog = Blog.new(blog_params)
         @blog.save!
-        redirect_back admin_blogs_path, notice: 'Blog creado exitosamente.'
+        redirect_to admin_blogs_path, notice: 'Blog creado exitosamente.'
       rescue StandardError => e
-        redirect_back fallback_location: :back, alert: e.message
+        redirect_to new_admin_blog_path, alert: e.message
       end
     end
 
@@ -33,16 +33,16 @@ module Admin
       begin
         @blog = Blog.find(params[:id])
         @blog.update(blog_params)
-        redirect_back admin_blogs_path, notice: 'Blog actualizado exitosamente.'
+        redirect_to admin_blogs_path, notice: 'Blog actualizado exitosamente.'
       rescue StandardError => e
-        redirect_back fallback_location: :back, alert: e.message
+        redirect_to new_admin_blog_path, alert: e.message
       end
     end
 
     def destroy
       @blog = Blog.find(params[:id])
       @blog.destroy
-      redirect_back fallback_location: :back, notice: 'Blog eliminado exitosamente.'
+      redirect_to fallback_location: :back, notice: 'Blog eliminado exitosamente.'
     end
 
     private
