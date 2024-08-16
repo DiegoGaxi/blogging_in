@@ -42,7 +42,7 @@ module Admin
     def destroy
       @blog = Blog.find(params[:id])
       @blog.destroy
-      redirect_to fallback_location: :back, notice: 'Blog eliminado exitosamente.'
+      redirect_to admin_blogs_path, notice: 'Blog eliminado exitosamente.'
     end
 
     private
