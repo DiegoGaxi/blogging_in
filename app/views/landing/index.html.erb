@@ -4,7 +4,7 @@
       <div class="font-effect"><h1 class="">Empieza tu propio blog en cuestión de minutos.</h1></div>
       <h2 class="colored-effect font-effect">Con un toque especial</h2>
       <div class="button-group">
-        <a class="primary-button" href="#contact">Empieza YA!</a>
+        <a class="primary-button" href=<%= new_user_registration_path %> data-turbo-frame="_top">Empieza YA!</a>
       </div>
     </div>
   </div>
@@ -21,15 +21,15 @@
 <main class="main-content">
   <section class="about row gx-0" data-controller="viewport-appear-animation" data-animation=""
     data-parallax-factor="0.1" data-animation-direction="left">
-    <div class="col-5">
+    <div class="col">
       <h2>Quienes Somos</h2>
       <p>
         En Blogging In, ofrecemos una plataforma intuitiva y potente que te permite crear, gestionar y compartir tus
         blogs sin complicaciones. Disfruta de herramientas personalizadas para diseñar tu blog y conectar con tu audiencia.
       </p>
-      <a class="primary-button" href="#">Conoce más</a>
+        <a class="primary-button" href=<%= new_user_registration_path %> data-turbo-frame="_top">Conoce más</a>
     </div>
-    <div class="about-image col-7">
+    <div class="about-image col">
       <div class="image"></div>
     </div>
   </section>
@@ -39,30 +39,24 @@
       <h4>Descubre las publicaciones más recientes y mantente al día con las últimas tendencias y consejos.</h4>
     </div>
     <div class="blog-cards row g-0">
-      <div class="blog-card col-6 mb-3">
-        <div class="blog-card-image"></div>
-        <div class="blog-card-content">
-          <h3>Cómo Iniciar un Blog en 2024</h3>
-          <p>Explora los pasos esenciales para lanzar tu blog este año y destacarte en el mundo digital.</p>
-          <a class="blog-card-button" href="#">Leer Más</a>
-        </div>
-      </div>
-      <div class="blog-card col-6 mb-3">
-        <div class="blog-card-image"></div>
-        <div class="blog-card-content">
-          <h3>Los Mejores Consejos de SEO para Bloggers</h3>
-          <p>Aprende las estrategias más efectivas para optimizar tu blog y mejorar su visibilidad en los motores de búsqueda.</p>
-          <a class="blog-card-button" href="#">Leer Más</a>
-        </div>
-      </div>
-      <div class="blog-card col-6 mb-3">
-        <div class="blog-card-image"></div>
-        <div class="blog-card-content">
-          <h3>Cómo Elegir el Tema Perfecto para tu Blog</h3>
-          <p>Encuentra el tema ideal que refleje tu estilo y atraiga a tu audiencia.</p>
-          <a class="blog-card-button" href="#">Leer Más</a>
-        </div>
-      </div>
+      <% if @blogs.present? %>
+        <% @blogs.each do |blog| %>
+          <div class="blog-card col-6 mb-3">
+            <% if blog.image.persisted? %>
+              <%= image_tag blog.image, class: "blog-card-image" %>
+            <% end %>
+            <div class="blog-card-content">
+              <h3><%= blog.title %></h3>
+              <p><%= blog.content %></p>
+              <p>Likes: <%= blog.likes_count %></p>
+              <p>Publicado el <%= blog.created_at.strftime('%d de %B de %Y') %></p>
+              <a class="blog-card-button" href=<%= blogger_blog_path(alias: blog.user.alias, id: blog.id) %>>Leer Más</a>
+            </div>
+          </div>
+        <% end %>
+      <% else %>
+        <p class="text-center">No se encontraron resultados.</p>
+      <% end %>
     </div>
   </section>
 </main>

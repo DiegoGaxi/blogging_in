@@ -1,15 +1,29 @@
-<header class="col-1 my-auto sidebar">
-    <nav>
+<header data-controller="navbar" class="col-lg-3 col-md-4 col-xl-3 col-xxl-2">
+    <button class="navbar-toggle" data-navbar-target="toggler">
+        <i class="fas fa-bars"></i>
+    </button>
+    <nav class="sidebar closed" data-navbar-target="navbar">
         <ul class="navbar-nav ml-auto">
+
             <li class="nav-item">
-                <%= link_to "Usuarios", admin_users_path, class: "nav-link" %>
+                <%= link_to "Ir a Blogging In", root_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-                <%= link_to "Mensajes de contacto", admin_contact_messages_path, class: "nav-link" %>
+                <%= link_to "Ir a mi Blog", blogger_landing_path(alias: current_user.alias), class: "nav-link" %>
             </li>
             <li class="nav-item">
-                <%= link_to "Gestionar Blogs", admin_blogs_path, class: "nav-link" %>
+                <%= link_to "Gestion de Usuarios", admin_users_path, class: "nav-link #{'active' if url_for == admin_users_path }" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to "Gestion de Blogs", admin_blogs_path, class: "nav-link #{'active' if url_for == admin_blogs_path }" %>
             </li>
         </ul>
+        <div class="auth-button">
+            <% if user_signed_in? %>
+                <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "btn btn-dark btn-logout ml-2", title: "Log out", aria: { label: "Log out" }, data: { turbo_frame: :_top } %>
+            <% else %>
+                <%= link_to "Log in", new_user_session_path, class: "btn btn-dark btn-login ml-2", title: "Log in", aria: { label: "Log in" }, data: { turbo_frame: :_top } %>
+            <% end %>
+        </div>
     </nav>
 </header>

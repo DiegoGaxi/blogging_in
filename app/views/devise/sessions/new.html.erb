@@ -1,10 +1,6 @@
 <div class="container-main">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "login-form" }) do |f| %>
   <h2>Iniciar Sesión</h2>
-    <div class="field">
-      <%= f.label :first_name, "Nombre" %><br />
-      <%= f.text_field :first_name, autofocus: true, autocomplete: "given-name", placeholder: "Tu nombre" %>
-    </div>
 
     <div class="field">
       <%= f.label :email, "Correo Electrónico" %><br />
@@ -17,7 +13,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Iniciar Sesión" %>
+      <%= f.submit "Iniciar Sesión", data: { disable_with: "Iniciando Sesion...", turbo_frame: :_top } %>
     </div>
     <%= render "devise/shared/links" %>
   <% end %>

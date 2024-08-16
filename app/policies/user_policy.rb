@@ -8,11 +8,11 @@ class UserPolicy
   end
 
   def index?
-     user.admin?
+     user.admin? || user.blogger?
   end
 
   def show?
-     user.admin?
+     user.admin? || user.blogger?
   end
 
   class Scope
@@ -24,6 +24,8 @@ class UserPolicy
      def resolve
         if user.admin?
            scope.all
+        elsif user.blogger?
+           scope.where(id: user.id)
         else
            scope.none
         end

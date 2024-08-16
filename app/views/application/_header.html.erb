@@ -6,16 +6,16 @@
         </button>
         <ul class="navbar-nav closed ml-auto" data-navbar-target="navbar">
             <li class="nav-item">
-                <%= link_to "Inicio", root_path, class: "nav-link #{ 'active' if current_page?('/') }" %>
-            </li>
-            <li class="nav-item">
-                <%= link_to "Blogs", blog_landing_index_path, class: "nav-link #{ 'active' if current_page?(blog_landing_index_path) }" %>
-            </li>
-            <% if user_signed_in? && current_user.admin? %>
+                <%= link_to("Inicio", controller_name == "blogger" ? blogger_landing_path(alias: @user.alias) : landing_index_path, class: "nav-link #{ 'active' if (current_page?(landing_index_path) || current_page?("/")) || (controller_name == 'blogger' && blogger_landing_path(alias: @user.alias)) }") %>
+              </li>
+              <li class="nav-item">
+                <%= link_to("Blog", controller_name == "blogger" ? blogger_blog_path(alias: @user.alias) : blog_landing_index_path, class: "nav-link  #{ 'active' if current_page?(blog_landing_index_path) || (controller_name == 'blogger' && blogger_blog_path(alias: @user.alias)) }") %>
+              </li>
+              <% if user_signed_in? && current_user&.admin? || current_user&.blogger? %>
                 <li class="nav-item">
-                    <%= link_to "Administracion", admin_root_path, class: "nav-link" %>
+                  <%= link_to "Administracion", admin_root_path, class: "nav-link #{request.original_url.include?('admin') ? 'active' : ''}", title: "Admin", aria: { label: "Admin" } %>
                 </li>
-            <% end %>
+              <% end %>
             <div class="auth-button">
                 <% if user_signed_in? %>
                     <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "primary-button ml-2" %>

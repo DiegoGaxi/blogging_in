@@ -185,6 +185,14 @@
         max-height: 250px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         text-align: left;
+
+        .blog-card-image{
+          background-size: contain;
+          position: relative;
+          top: 0;
+          width: 200px;
+          height: 100px;
+        }
       }
     }
   }

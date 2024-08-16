@@ -52,7 +52,7 @@ module Admin
     end
 
     def find_records(criteria)
-      BlogQuery.new(criteria).call
+      Admin::BlogQuery.new(criteria).call
     end
 
     def blog_params

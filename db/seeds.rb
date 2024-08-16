@@ -11,14 +11,14 @@ if Rails.env.development?
   admin_permission = Permission.find_by_name('admin')
   
   # create admin
-  unless User.admin.find_by_email('admin@blogginIn.com')
+  unless User.admin.find_by_email('admin@bloggingin.com')
     admin = User.admin.new.tap do |user|
       user.first_name = 'admin'
       user.paternal_surname = 'admin'
       user.maternal_surname = 'admin'
-      user.email = 'admin@blogginIn.com'
-      user.password = 'Pass1234'
-      user.password_confirmation = 'Pass1234'
+      user.email = 'admin@bloggingin.com'
+      user.password = '123456'
+      user.password_confirmation = '123456'
     end
 
     admin.transaction do

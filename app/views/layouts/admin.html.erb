@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Works To - Admin</title>
+    <title>Blogging In - Admin</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -14,7 +14,6 @@
 
   <body>
     <main>
-      <%= render partial: "header" %>
       <% if alert %>
         <%= render  partial: 'shared/toast', locals: { errors: alert, clase: 'errors' } %>
       <% end %>
@@ -24,8 +23,6 @@
       
       <%= render partial: "admin/sidebar" %>
       <%= yield %>
-      
-      <%= render partial: "footer" %>
     </main>
   </body>
 </html>

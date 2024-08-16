@@ -1,11 +1,17 @@
 <div class="container-main">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'registration-form' }) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'login-form' }) do |f| %>
     <h2>Registro</h2>
     <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="field">
-      <%= f.label :first_name, "Nombre" %><br />
-      <%= f.text_field :first_name, autofocus: true, autocomplete: "given-name", placeholder: "Tu nombre" %>
+    <div class="row">
+      <div class="field col-md-6">
+        <%= f.label :first_name, "Nombre" %><br />
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "given-name", placeholder: "Tu nombre" %>
+      </div>
+      <div class="field col-md-6">
+        <%= f.label :paternal_surname, "Apellido Paterno" %><br />
+        <%= f.text_field :paternal_surname, autofocus: true, autocomplete: "given-name", placeholder: "Tu apellido paterno" %>
+      </div>
     </div>
 
     <div class="field">
@@ -27,7 +33,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Registrar" %>
+      <%= f.submit "Registrar", data: { disable_with: "Registrando...", turbo_frame: :_top } %>
     </div>
     <%= render "devise/shared/links", class: 'devise-links' %>
   <% end %>

@@ -1,0 +1,180 @@
+@import "./variables";
+
+.table {
+   margin-top: 50px;
+   width: 100%;
+   border-collapse: collapse;
+   border-radius: 8px;
+   overflow: hidden;
+
+   a {
+    color: $secondary-color;
+    text-decoration: none; /* Quitamos subrayado a los enlaces */
+    transition: color 0.3s ease; /* Transición suave del color del texto */
+    
+    &:hover {
+      color: $primary-color;
+    }
+   }
+ 
+   th, td {
+     padding: 12px 15px;
+     border-bottom: 1px solid #e0e0e0;
+   }
+
+   th {
+     background-color: #f8f9fa;
+     font-weight: bold;
+     text-transform: uppercase;
+     color: #333;
+   }
+   
+   thead th{
+     background-color: $primary-color;
+   }
+ 
+   tr {
+     background-color: $white-color;
+ 
+     &:hover {
+         background-color: rgba($tertiary-color, 0.4);
+      }
+   }
+ 
+   tbody tr:nth-child(even) {
+      background-color: rgba($tertiary-color, 0.2);
+      
+      &:hover {
+         background-color: rgba($tertiary-color, 0.4);
+      }
+   }
+ 
+   tbody tr:last-child {
+     border-bottom: none;
+   }
+   
+  }
+
+  @media only screen and (max-width: 767px) {
+   .table {
+     border-collapse: separate !important;
+    }
+
+    tr {
+      display: block;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    td {
+      display: flex;
+      flex-direction: column;
+      padding: 15px;
+      border: none;
+    }
+
+    thead tr {
+      display: none;
+    }
+  }
+
+
+.table-widget {
+  border-radius: 1rem;
+  background: $white-color;
+  padding: 1.5rem;
+  border: 2px solid $primary-color;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  text-align: left;
+  overflow-x: auto;
+}
+
+.table-widget table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table-widget caption {
+    font-size: 1.12rem;
+    font-weight: 700;
+    text-align: left;
+    margin: 0.5rem 0px;
+}
+
+.table-widget th {
+    padding: 1.25rem 1rem;
+    font-size: 0.875rem;
+    color: $primary-color;
+}
+
+.table-widget thead {
+    border-top: 2px solid $primary-color;
+}
+
+.table-widget tfoot {
+    margin-top: 1rem;
+    border-top: 2px solid $primary-color;
+}
+
+.table-widget td {
+    align-items: center;
+    padding: 0.5rem 1rem;
+    vertical-align: middle;
+}
+
+.table-widget tbody tr {
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.table-widget tbody tr:nth-child(odd) {
+    background: rgba($tertiary-color, 0.2);
+}
+
+.table-widget tbody tr:hover {
+    background: #e2ecff;
+}
+
+.team-member-profile {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.profile-info__name {
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.status {
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    font-weight: 700;
+}
+
+.status--active {
+    background: #EAFEF3;
+    color: #2ECC71;
+}
+
+.status--inactive {
+    background: #fff6e5;
+    color: #F4BD50;
+}
+
+.status--canceled {
+    background: $tertiary-color;
+    color: $primary-color;
+}
+
+.table-widget {
+    min-height: 5rem;
+}

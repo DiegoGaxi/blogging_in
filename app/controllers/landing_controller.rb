@@ -2,6 +2,7 @@ class LandingController < ApplicationController
   skip_before_action :authenticate_user!
   
   def index
+    @pagy_blogs, @blogs = pagy(search_records, page_param: :pagy_blogs, items: 10)
   end
 
   def blog

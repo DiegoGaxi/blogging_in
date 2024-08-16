@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     if current_user.admin?
       admin_root_path
     elsif current_user.blogger?
-      root_path
+      blogger_root_path
     else
       root_path
     end

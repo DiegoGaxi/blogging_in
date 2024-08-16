@@ -30,7 +30,7 @@ main::-webkit-scrollbar {
 .container-main {
   background-color: $primary-light-light-color;
   padding: 150px 130px;
-  height: 100vh;
+  height: 100%;
 
   @media (max-width: $breakpoint-phone) {
     padding: 115px 20px;

@@ -81,7 +81,7 @@
                             <ul class="list-unstyled">
                             <% @categories.each do |category| %>
                                 <li class="mb-2">
-                                    <%= link_to category.name, blog_landing_index_path(category: category.id), class: "text-decoration-none text-dark d-flex justify-content-between" %>
+                                    <%= link_to category.name, blogger_blog_path(category: category.id, alias: params[:alias]), class: "text-decoration-none text-dark d-flex justify-content-between" %>
                                 </li>
                             <% end %>
                             </ul>

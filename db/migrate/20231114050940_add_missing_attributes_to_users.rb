@@ -8,5 +8,6 @@ class AddMissingAttributesToUsers < ActiveRecord::Migration[7.0]
     add_column :users, :mobile_phone, :string
     add_column :users, :role, :integer, default: 0
     add_column :users, :gender, :integer
+    add_column :users, :alias, :string
   end
 end

@@ -1,10 +1,10 @@
-<%= turbo_frame_tag 'component' do %>
-   <div class="container mt-5">
+<%= turbo_frame_tag 'component', class: 'container-main row g-0'  do %>
+   <div class="container col-6">
       <h1>Gestion de Blogs</h1>
       <div class="mb-3">
          <%= button_to "Nuevo Blog", new_admin_blog_path, method: :get , class: "primary-button", data: { turbo: false } %>
       </div>
-      <div class="row align-items-center mt-5 mb-5" style="background-color: #fff;border-radius: 20px;padding: 10px 20px;font-size: 0.875rem;">
+      <div class="row align-items-center mt-4 mb-4" style="background-color: #fff;border-radius: 20px;padding: 10px 20px;font-size: 0.875rem;">
          Registros encontrados:  <%= @pagy_blogs.count %> 
       </div>
       <% if @blogs.empty? %>
