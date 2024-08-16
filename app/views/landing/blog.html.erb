@@ -18,7 +18,7 @@
 
                     <!-- Blog Actual -->
                     <% if @showing_blog.present? %>
-                        <article class="card shadow-sm blog-card">
+                        <article class="card shadow-sm blog-card mb-4 active">
                             <div class="card-body">
                                 <h5 class="card-title mb-1">
                                     <%= @showing_blog.title.camelcase %>
@@ -33,11 +33,17 @@
                                     <button class="btn btn-outline-primary me-2">
                                     <i class="bi bi-arrow-up"></i>
                                     </button>
-                                    <span><%= @showing_blog.likes_count %> votos</span>
+                                    <%= turbo_frame_tag "like_counter" do %>
+                                        <span><%= @showing_blog.likes_count %> votos</span>
+                                    <% end %>
+                                    <%= button_to 'Votar', blog_like_landing_index_path(id: @showing_blog.id), method: :post, class: "btn btn-primary", data: { turbo_frame: "like_counter" } %>
                                 </div>
+                                <% if @showing_blog.image.persisted? %>
+                                    <%= image_tag @showing_blog.image, class: "blog-card-image" %>
+                                <% end %>
                                 <% if @showing_blog.video_url.present? %>
-                                    <div class="video-container">
-                                        <iframe class="video" width="1263" height="720" src="<%= format_embed_video(@showing_blog.video_url) %>" frameborder="0" allowfullscreen title="<%= @showing_blog.title %>" alt="<%= @showing_blog.title %>"></iframe>
+                                    <div class="video-container mt-3">
+                                        <iframe class="video" width="100%" height="400" src="<%= format_embed_video(@showing_blog.video_url) %>" frameborder="0" allowfullscreen title="<%= @showing_blog.title %>" alt="<%= @showing_blog.title %>"></iframe>
                                     </div>
                                 <% end %>
                             </div>
@@ -59,9 +65,9 @@
                                         <%= blog.content.truncate(300) %>
                                     </p>
                                     <div class="d-flex align-items-center mt-3">
-                                        <button class="icon-button me-2">
+                                        <div class="icon-button me-2">
                                             <i class="thumbs-up-icon"></i>
-                                        </button>
+                                        </div>
                                         <span><%= blog.likes_count %> votos</span>
                                     </div>
                                 </div>
@@ -79,11 +85,13 @@
                         <div class="card-body">
                             <h5 class="card-title">Categorías</h5>
                             <ul class="list-unstyled">
-                            <% @categories.each do |category| %>
-                                <li class="mb-2">
-                                    <%= link_to category.name, blog_landing_index_path(category: category.id), class: "text-decoration-none text-dark d-flex justify-content-between" %>
-                                </li>
-                            <% end %>
+                                <% if @categories.present? %>
+                                    <% @categories.each do |category| %>
+                                        <li class="mb-2">
+                                            <%= link_to category.name, blog_landing_index_path(category: category.id), class: "text-decoration-none text-dark d-flex justify-content-between" %>
+                                        </li>
+                                    <% end %>
+                                <% end %>
                             </ul>
                         </div>
                     </div>

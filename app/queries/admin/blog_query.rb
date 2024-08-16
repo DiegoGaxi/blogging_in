@@ -28,7 +28,7 @@ module Admin
     end
   
     def call
-      relation = Blog.includes(blogs_categories: :category).order(created_at: :desc)
+      relation = Blog.includes(:user, blogs_categories: :category).order(created_at: :desc)
       if params[:q].present?
         condition = FILTERS[:q][:filters].map do |f|
           ActiveRecord::Base.sanitize_sql_for_conditions(["#{f[:column]} #{f[:operator]} unaccent(?)", "%#{params[:q]}%"])
@@ -37,6 +37,9 @@ module Admin
       end
       if params[:category].to_i.positive?
         relation = relation.where(blogs_categories: { category_id: params[:category] })
+      end
+      if params[:alias].present?
+        relation = relation.where(user: { alias: params[:alias] })
       end
       relation
     end

@@ -8,9 +8,11 @@
             <li class="nav-item">
                 <%= link_to "Ir a Blogging In", root_path, class: "nav-link" %>
             </li>
-            <li class="nav-item">
-                <%= link_to "Ir a mi Blog", blogger_landing_path(alias: current_user.alias), class: "nav-link" %>
-            </li>
+            <% if current_user&.blogger? %>
+                <li class="nav-item">
+                    <%= link_to "Ir a mi Blog", blogger_landing_path(alias: current_user.alias), class: "nav-link" %>
+                </li>
+            <% end %>
             <li class="nav-item">
                 <%= link_to "Gestion de Usuarios", admin_users_path, class: "nav-link #{'active' if url_for == admin_users_path }" %>
             </li>

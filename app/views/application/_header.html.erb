@@ -6,10 +6,10 @@
         </button>
         <ul class="navbar-nav closed ml-auto" data-navbar-target="navbar">
             <li class="nav-item">
-                <%= link_to("Inicio", controller_name == "blogger" ? blogger_landing_path(alias: @user.alias) : landing_index_path, class: "nav-link #{ 'active' if (current_page?(landing_index_path) || current_page?("/")) || (controller_name == 'blogger' && blogger_landing_path(alias: @user.alias)) }") %>
+                <%= link_to("Inicio", controller_name == "blogger" ? blogger_landing_path(alias: params[:alias]) : landing_index_path, class: "nav-link #{ 'active' if (current_page?(landing_index_path) || current_page?("/")) || (controller_name == 'blogger' && url_for == blogger_landing_path(alias: params[:alias])) }") %>
               </li>
               <li class="nav-item">
-                <%= link_to("Blog", controller_name == "blogger" ? blogger_blog_path(alias: @user.alias) : blog_landing_index_path, class: "nav-link  #{ 'active' if current_page?(blog_landing_index_path) || (controller_name == 'blogger' && blogger_blog_path(alias: @user.alias)) }") %>
+                <%= link_to("Blog", controller_name == "blogger" ? blogger_blog_path(alias: params[:alias]) : blog_landing_index_path, class: "nav-link  #{ 'active' if current_page?(blog_landing_index_path) || (controller_name == 'blogger' && url_for == blogger_blog_path(alias: params[:alias])) }") %>
               </li>
               <% if user_signed_in? && current_user&.admin? || current_user&.blogger? %>
                 <li class="nav-item">

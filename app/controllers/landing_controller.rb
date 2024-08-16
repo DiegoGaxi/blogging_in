@@ -11,6 +11,13 @@ class LandingController < ApplicationController
     @showing_blog = Blog.find_by(id: params[:id])
   end
 
+  def blog_like
+    @showing_blog = Blog.find(params[:id])
+    @showing_blog.likes_count += 1
+    @showing_blog.save!
+    render :blog
+  end
+
   private
 
   def search_records

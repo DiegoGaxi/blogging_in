@@ -14,7 +14,13 @@ class BlogPolicy
     end
 
     def resolve
-      scope.all
+      if user.present? && user.admin?
+        scope.all
+      elsif user.present? && user.blogger?
+        scope.where(user_id: user.id)
+      else
+        scope.all
+      end
    end
 
     private

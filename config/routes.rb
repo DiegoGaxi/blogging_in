@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :landing, only: %i[index] do
     collection do
       get :blog
+      post :blog_like
     end
   end
 
@@ -17,7 +18,6 @@ Rails.application.routes.draw do
     resources :users, only: %i[index show]
     resources :blogs, only: %i[index new create edit update destroy]
   end
-
 
   root to: 'landing#index'
   get '/admin', to: 'admin/users#index', as: :admin_root

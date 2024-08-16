@@ -79,7 +79,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_08_15_233404) do
     t.bigint "user_id", null: false
     t.string "title"
     t.text "content"
-    t.integer "likes_count"
+    t.integer "likes_count", default: 0
     t.string "video_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

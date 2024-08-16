@@ -16,6 +16,7 @@ if Rails.env.development?
       user.first_name = 'admin'
       user.paternal_surname = 'admin'
       user.maternal_surname = 'admin'
+      user.alias = 'admin'
       user.email = 'admin@bloggingin.com'
       user.password = '123456'
       user.password_confirmation = '123456'
