@@ -25,6 +25,7 @@
                                 </h5>
                                 <p class="card-text text-muted mb-3">
                                     Publicado el <%= @showing_blog.created_at.strftime('%d de %B de %Y') %>
+                                    por <a href="<%= blogger_blog_path(alias: @showing_blog.user.alias, id: @showing_blog.id) %>" data-turbo-frame="_top"><%= @showing_blog.user.display_name.humanize %></a>
                                 </p>
                                 <p class="card-text">
                                     <%= @showing_blog.content.truncate(300) %>

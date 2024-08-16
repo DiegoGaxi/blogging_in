@@ -1,8 +1,8 @@
 <div class="call-to-action">
     <div class="call-to-action-content">
       <div class="text-section">
-        <div class="font-effect"><h1 class="">Empieza tu propio blog en cuestión de minutos.</h1></div>
-        <h2 class="colored-effect font-effect">Con un toque especial</h2>
+        <div class="font-effect"><h1 class=""><%= @landing[:title] %></h1></div>
+        <h2 class="colored-effect font-effect"><%= @landing[:subtitle] %></h2>
         <div class="button-group">
           <a class="primary-button" href=<%= new_user_registration_path %> data-turbo-frame="_top">Empieza YA!</a>
         </div>

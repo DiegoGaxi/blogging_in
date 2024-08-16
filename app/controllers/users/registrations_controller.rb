@@ -11,7 +11,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         @user.save!
         redirect_to new_user_session_path, notice: 'Usuario creado exitosamente.'
       rescue StandardError => e
-        redirect_back fallback_location: :back, alert: e.message
+        redirect_to fallback_location: :back, alert: e.message
       end
     end
   

@@ -108,7 +108,7 @@ group :test do
     gem 'factory_bot_rails'
     # Test controllers
     gem 'rails-controller-testing'
-    
+    gem 'faker'
     #gem 'minitest'
   
     #rspec
