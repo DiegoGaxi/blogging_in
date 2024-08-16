@@ -14,8 +14,6 @@ test:
   database: blogging_in_test
   username: postgres
   password: postgres
-  # username: ec2-user
-  # password: 
 
 staging:
   <<: *default
