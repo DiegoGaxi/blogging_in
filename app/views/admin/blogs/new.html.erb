@@ -1,37 +1,51 @@
-<%= turbo_frame_tag 'new_blog_form', class: 'container-main-admin row g-0'  do %>
-  <div class="container mt-5 col-6">
-    <h1><%= @blog.new_record? ? 'Crear nuevo blog' : 'Editar blog' %></h1>
-    <%= form_with(model: @blog, url: @blog.new_record? ? admin_blogs_path : admin_blog_path, method: @blog.new_record? ? :post : :patch, class: 'form', multipart: true, data: { turbo: false }) do |form| %>
-      <%= form.hidden_field :user_id, value: current_user.id %>
+<%= turbo_frame_tag 'new_blog_form' do %>
+  <div class="row justify-content-center container-main-admin full-height">
+    <div class="col-md-8 col-lg-6">
+      <h1 class="mb-4"><%= @blog.new_record? ? 'Crear nuevo blog' : 'Editar blog' %></h1>
 
-      <div class="form-group">
-        <%= form.label :title, 'Título', class: 'form-label' %>
-        <%= form.text_field :title, class: 'form-control', placeholder: 'Título del blog' %>
-      </div>
+      <%= button_to "Regresar", :back, method: :get, form_class: "col-6", class: "primary-button", data: { turbo: false } %>
 
-      <div class="form-group">
-        <%= form.label :content, 'Contenido', class: 'form-label' %>
-        <%= form.text_area :content, class: 'form-control', placeholder: 'Contenido del blog' %>
-      </div>
+      <%= form_with(model: @blog, url: @blog.new_record? ? admin_blogs_path : admin_blog_path, method: @blog.new_record? ? :post : :patch, class: 'form', multipart: true, data: { turbo: false }) do |form| %>
+        
+        <%= form.hidden_field :user_id, value: current_user.id %>
 
-      <div class="form-group">
-        <%= form.label :image, 'Imágen', class: 'form-label' %>
-        <%= form.file_field :image, multiple: false, class: 'form-control', accept: 'image/*' %>
-      </div>
+        <div class="mb-3">
+          <%= form.label :title, 'Título', class: 'form-label' %>
+          <%= form.text_field :title, class: 'form-control', placeholder: 'Título del blog' %>
+        </div>
 
-      <div class="form-group">
-        <%= form.label :video_url, 'Url de Video', class: 'form-label' %>
-        <%= form.text_field :video_url, class: 'form-control', placeholder: 'Url del video' %>
-      </div>
+        <div class="mb-3">
+          <%= form.label :content, 'Contenido', class: 'form-label' %>
+          <%= form.text_area :content, class: 'form-control', placeholder: 'Contenido del blog', rows: 6 %>
+        </div>
 
-      <div class="form-group">
-        <%= form.label :category_ids, 'Categorías', class: 'form-label' %>
-        <%= form.collection_check_boxes :category_ids, Category.all, :id, :name, { class: 'form-check-input' }, { class: 'form-check-label' } %>
-      </div>
+        <div class="mb-3">
+          <%= form.label :image, 'Imagen', class: 'form-label' %>
+          <%= image_tag @blog.image, width: 50 if @blog.image.present? %>
+          <%= form.file_field :image, class: 'form-control', accept: 'image/*' %>
+        </div>
 
-      <div class="text-center mt-3">
-        <%= form.submit @blog.new_record? ? 'Crear blog' : 'Actualizar blog', class: 'btn btn-primary' %>
-      </div>
-    <% end %>
+        <div class="mb-3">
+          <%= form.label :video_url, 'Url de Video', class: 'form-label' %>
+          <%= form.text_field :video_url, class: 'form-control', placeholder: 'Url del video' %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :category_ids, 'Categorías', class: 'form-label' %>
+          <div class="form-check">
+            <%= form.collection_check_boxes :category_ids, Category.all, :id, :name, class: 'form-check-input' do |b| %>
+              <div class="form-check">
+                <%= b.check_box %>
+                <%= b.label(class: 'form-check-label') %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <%= form.submit @blog.new_record? ? 'Crear blog' : 'Actualizar blog', class: 'primary-button' %>
+        </div>
+      <% end %>
+    </div>
   </div>
 <% end %>

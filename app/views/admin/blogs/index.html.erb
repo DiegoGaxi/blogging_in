@@ -1,5 +1,5 @@
 <%= turbo_frame_tag 'component', class: 'container-main-admin row g-0'  do %>
-   <div class="container col-6">
+   <div class="container col-xl-6 col-sm-12">
       <h1>Gestion de Blogs</h1>
       <div class="mb-3">
          <%= button_to "Nuevo Blog", new_admin_blog_path, method: :get , class: "primary-button", data: { turbo: false } %>
@@ -29,8 +29,8 @@
                         <td><%= blog.title %></td>
                         <td><%= blog.created_at.strftime("%d/%m/%Y") %></td>
                         <td class="row text-center">
-                           <%= link_to "Editar", edit_admin_blog_path(blog), class: "icon col-6", data: { turbo: false } %>
-                           <%= button_to "Eliminar", admin_blog_path(blog), method: :delete, class: "icon", form_class: "col-6", data: { confirm: "¿Desea eliminar este blog?", turbo: false } %>
+                           <%= button_to "Editar", edit_admin_blog_path(blog), method: :get, form_class: "col-6", class: "primary-button", data: { turbo: false } %>
+                           <%= button_to "Eliminar", admin_blog_path(blog), method: :delete, class: "primary-button", form_class: "col-6", data: { turbo_confirm: "¿Desea eliminar este blog?" } %>
                         </td>
                      </tr>
                   <% end %>

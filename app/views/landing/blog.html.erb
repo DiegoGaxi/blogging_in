@@ -1,7 +1,7 @@
 <%= turbo_frame_tag "main" do %>
     <main class="container-main">
         <div class="row">
-            <div class="font-effect"><h1>Blogs</h1></div>
+            <div class="font-effect"><h1>Blogs <%= ('- ' + params[:alias].humanize) if params[:alias].present? %></h1></div>
             <div class="row wrap-reverse-mobile">
 
                 <div class="col-sm-8">
@@ -29,23 +29,24 @@
                                 <p class="card-text">
                                     <%= @showing_blog.content.truncate(300) %>
                                 </p>
-                                <div class="d-flex align-items-center mt-3">
-                                    <div class="icon-button me-2">
-                                        <i class="thumbs-up-icon"></i>
-                                    </div>
-                                    <%= turbo_frame_tag "like_counter" do %>
-                                        <span><%= @showing_blog.likes_count %> votos</span>
-                                    <% end %>
-                                    <%= button_to 'Votar', blog_like_landing_index_path(id: @showing_blog.id), method: :post, class: "btn btn-primary", data: { turbo_frame: "like_counter" } %>
-                                </div>
                                 <% if @showing_blog.image.persisted? %>
                                     <%= image_tag @showing_blog.image, class: "blog-card-image", width:"100%", height:"400"%>
                                 <% end %>
                                 <% if @showing_blog.video_url.present? %>
-                                    <div class="video-container mt-3">
+                                    <div class="video-container mt-1">
                                         <iframe class="video" width="100%" height="400" src="<%= format_embed_video(@showing_blog.video_url) %>" frameborder="0" allowfullscreen title="<%= @showing_blog.title %>" alt="<%= @showing_blog.title %>"></iframe>
                                     </div>
                                 <% end %>
+                                <div class="d-flex align-items-center mt-2">
+                                    <%= turbo_frame_tag "like_counter" do %>
+                                        <span><%= @showing_blog.likes_count %> likes</span>
+                                    <% end %>
+                                    <%= link_to blog_like_landing_index_path(id: @showing_blog.id), class: "m-2", data: { turbo_frame: "like_counter", turbo_method: :post } do %>
+                                        <div class="icon-button me-2">
+                                            <i class="thumbs-up-icon"></i>
+                                        </div>
+                                    <% end %>
+                                </div>
                             </div>
                         </article>
                     <% end %>
@@ -65,10 +66,7 @@
                                         <%= blog.content.truncate(300) %>
                                     </p>
                                     <div class="d-flex align-items-center mt-3">
-                                        <div class="icon-button me-2">
-                                            <i class="thumbs-up-icon"></i>
-                                        </div>
-                                        <span><%= blog.likes_count %> votos</span>
+                                        <span><%= blog.likes_count %> likes </span>
                                     </div>
                                 </div>
                             </article>

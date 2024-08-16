@@ -1,5 +1,4 @@
 <div class="container-main">
-  
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "login-form" }) do |f| %>
   <h2>Olvidaste tu contraseña?</h2>
     <%= render "devise/shared/error_messages", resource: resource %>
@@ -10,9 +9,8 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Enviame las instrucciones para restablecer la contraseña" %>
+      <button type="submit" class="primary-button" data-turbo-frame="_top" data-disable-with="Enviando Correo...">Recuperar Contraseña</button>
     </div>
     <%= render "devise/shared/links" %>
   <% end %>
-
 </div>

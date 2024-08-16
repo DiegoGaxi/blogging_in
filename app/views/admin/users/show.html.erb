@@ -1,22 +1,27 @@
-<div class="container-main-admin ">
-   <div class="card mx-auto p-4 shadow-sm" style="max-width: 600px;">
-      <div class="row mb-3">
-         <div class="col">
-            <h5 class="fw-bold">Nombre</h5>
-            <p class="text-muted"><%= @user.first_name %></p>
+<div class="container-main-admin">
+   <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+         <%= button_to "Regresar", :back, method: :get, form_class: "col-6 mb-3", class: "primary-button", data: { turbo: false } %>
+         <div class="card mx-auto p-4 shadow-sm" style="max-width: 600px;">
+            <div class="row mb-3">
+               <div class="col">
+                  <h5 class="fw-bold">Nombre</h5>
+                  <p class="text-muted"><%= @user.first_name %></p>
+               </div>
+               <div class="col">
+                  <h5 class="fw-bold">Apellido</h5>
+                  <p class="text-muted"><%= @user.paternal_surname %></p>
+               </div>
+            </div>
+            <div class="mb-3">
+               <h5 class="fw-bold">Fecha de Contacto</h5>
+               <p class="text-muted"><%= @user.created_at.strftime("%d/%m/%Y") %></p>
+            </div>
+            <div class="mb-3">
+               <h5 class="fw-bold">Email</h5>
+               <p class="text-muted"><%= @user.email %></p>
+            </div>
          </div>
-         <div class="col">
-            <h5 class="fw-bold">Apellido</h5>
-            <p class="text-muted"><%= @user.paternal_surname %></p>
-         </div>
-      </div>
-      <div class="mb-3">
-         <h5 class="fw-bold">Fecha de Contacto</h5>
-         <p class="text-muted"><%= @user.created_at.strftime("%d/%m/%Y") %></p>
-      </div>
-      <div class="mb-3">
-         <h5 class="fw-bold">Email</h5>
-         <p class="text-muted"><%= @user.email %></p>
       </div>
    </div>
 </div>

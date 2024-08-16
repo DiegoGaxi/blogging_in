@@ -1,8 +1,8 @@
 <%= turbo_frame_tag 'component', class: 'container-main-admin row g-0'  do %>
-   <div class="container col-6">
+   <div class="container col-lg-6 col-sm-12">
       <% unless @users.nil? %>
          <h1>Usuarios registrados</h1>
-         <div class="table-widget">
+         <div class="table-widget mt-5">
             <table>
                <thead>
                   <tr>
@@ -18,7 +18,7 @@
                         <td><%= user.first_name %></td>
                         <td><%= user.email %></td>
                         <td><%= user.created_at.strftime("%d/%m/%Y") %></td>
-                        <td><%= link_to 'Ver', admin_user_path(user), data: { turbo: false } %></td>
+                        <td><%= link_to 'Ver', admin_user_path(user), class: 'primary-button', data: { turbo: false } %></td>
                      </tr>
                   <% end %>
                </tbody>

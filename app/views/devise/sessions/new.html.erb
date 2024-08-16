@@ -13,7 +13,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "Iniciar Sesión", data: { disable_with: "Iniciando Sesion...", turbo_frame: :_top } %>
+      <button type="submit" class="primary-button" data-turbo-frame="_top" data-disable-with="Iniciando Sesion...">Iniciar Sesión</button>
     </div>
     <%= render "devise/shared/links" %>
   <% end %>

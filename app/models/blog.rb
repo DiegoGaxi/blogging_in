@@ -5,4 +5,13 @@ class Blog < ApplicationRecord
 
   validates :title, presence: true
   validates :content, presence: true
+  validate :categories_present
+
+  private
+
+  def categories_present
+    if category_ids.empty?
+      errors.add(:category_ids, "Debe seleccionar al menos una categoría")
+    end
+  end
 end

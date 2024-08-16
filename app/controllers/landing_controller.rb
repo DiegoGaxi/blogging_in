@@ -21,10 +21,10 @@ class LandingController < ApplicationController
   private
 
   def search_records
-    policy_scope(BlogQuery.new(blog_params).call)
+    BlogQuery.new(blog_params).call
   end
 
   def blog_params
-    params.permit(:q, :category)
+    params.permit(:q, :category, :alias)
   end
 end
