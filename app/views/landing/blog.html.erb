@@ -30,16 +30,16 @@
                                     <%= @showing_blog.content.truncate(300) %>
                                 </p>
                                 <div class="d-flex align-items-center mt-3">
-                                    <button class="btn btn-outline-primary me-2">
-                                    <i class="bi bi-arrow-up"></i>
-                                    </button>
+                                    <div class="icon-button me-2">
+                                        <i class="thumbs-up-icon"></i>
+                                    </div>
                                     <%= turbo_frame_tag "like_counter" do %>
                                         <span><%= @showing_blog.likes_count %> votos</span>
                                     <% end %>
                                     <%= button_to 'Votar', blog_like_landing_index_path(id: @showing_blog.id), method: :post, class: "btn btn-primary", data: { turbo_frame: "like_counter" } %>
                                 </div>
                                 <% if @showing_blog.image.persisted? %>
-                                    <%= image_tag @showing_blog.image, class: "blog-card-image" %>
+                                    <%= image_tag @showing_blog.image, class: "blog-card-image", width:"100%", height:"400"%>
                                 <% end %>
                                 <% if @showing_blog.video_url.present? %>
                                     <div class="video-container mt-3">

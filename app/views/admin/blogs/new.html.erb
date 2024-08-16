@@ -1,4 +1,4 @@
-<%= turbo_frame_tag 'new_blog_form', class: 'container-main row g-0'  do %>
+<%= turbo_frame_tag 'new_blog_form', class: 'container-main-admin row g-0'  do %>
   <div class="container mt-5 col-6">
     <h1><%= @blog.new_record? ? 'Crear nuevo blog' : 'Editar blog' %></h1>
     <%= form_with(model: @blog, url: @blog.new_record? ? admin_blogs_path : admin_blog_path, method: @blog.new_record? ? :post : :patch, class: 'form', multipart: true, data: { turbo: false }) do |form| %>

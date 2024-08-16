@@ -1,24 +1,22 @@
-<div class="container">
-   <div class="mx-auto card-contact-me w-50">
-      <div class="row">
+<div class="container-main-admin ">
+   <div class="card mx-auto p-4 shadow-sm" style="max-width: 600px;">
+      <div class="row mb-3">
          <div class="col">
-            <h5>Nombre</h5>
-            <p class="m-2"><%=@user.first_name%></p>
+            <h5 class="fw-bold">Nombre</h5>
+            <p class="text-muted"><%= @user.first_name %></p>
          </div>
          <div class="col">
-            <h5>Apellido</h5>
-            <p class="m-2"><%=@user.paternal_surname%></p>
-         </div>
-         <div class="col-12 mt-3">
-            <div>Fecha de Contacto: </div>
-            <p class="m-2"><%=@user.created_at.strftime("%d/%m/%Y")%></p>
+            <h5 class="fw-bold">Apellido</h5>
+            <p class="text-muted"><%= @user.paternal_surname %></p>
          </div>
       </div>
-      <div class="row mt-4">
-         <div class="col">
-            <h5>Email</h5>
-            <p class="m-2"><%=@user.email%></p>
-         </div>
+      <div class="mb-3">
+         <h5 class="fw-bold">Fecha de Contacto</h5>
+         <p class="text-muted"><%= @user.created_at.strftime("%d/%m/%Y") %></p>
+      </div>
+      <div class="mb-3">
+         <h5 class="fw-bold">Email</h5>
+         <p class="text-muted"><%= @user.email %></p>
       </div>
    </div>
 </div>

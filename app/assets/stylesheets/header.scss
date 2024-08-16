@@ -194,7 +194,11 @@
 
 
 
-
+.sidebar-container {
+    .navbar-toggle{
+        display: flex;
+    }
+}
 /* Estilos para el sidebar del panel de administrador */
 .sidebar {
     position: fixed;

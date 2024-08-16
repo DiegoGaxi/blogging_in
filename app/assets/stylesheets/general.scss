@@ -27,6 +27,12 @@ main::-webkit-scrollbar {
   width: 0; /* Ocultar la barra de desplazamiento en navegadores webkit */
 }
 
+.container-main-admin{
+  background-color: $primary-light-light-color;
+  padding: 40px 130px;
+  height: 100vh;
+}
+
 .container-main {
   background-color: $primary-light-light-color;
   padding: 150px 130px;

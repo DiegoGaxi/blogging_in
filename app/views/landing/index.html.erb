@@ -4,7 +4,7 @@
       <div class="font-effect"><h1 class="">Empieza tu propio blog en cuestión de minutos.</h1></div>
       <h2 class="colored-effect font-effect">Con un toque especial</h2>
       <div class="button-group">
-        <a class="primary-button" href=<%= new_user_registration_path %> data-turbo-frame="_top">Empieza YA!</a>
+        <a class="primary-button" href=<%= new_user_registration_path %> data-turbo-frame="_top">Registrate</a>
       </div>
     </div>
   </div>
@@ -45,12 +45,16 @@
             <% if blog.image.persisted? %>
               <%= image_tag blog.image, class: "blog-card-image" %>
             <% end %>
-            <div class="blog-card-content">
-              <h3><%= blog.title %></h3>
-              <p><%= blog.content %></p>
-              <p>Likes: <%= blog.likes_count %></p>
-              <p>Publicado el <%= blog.created_at.strftime('%d de %B de %Y') %></p>
-              <a class="blog-card-button" href=<%= blogger_blog_path(alias: blog.user.alias, id: blog.id) %>>Leer Más</a>
+            <div class="blog-card-content row">
+              <div class="col-6">
+                <h3 class="card-title"><%= blog.title %></h3>
+                <p class="card-text"><small class="text-muted">Likes: <%= blog.likes_count %></small></p>
+                <a class="btn btn-primary" href="<%= blogger_blog_path(alias: blog.user.alias, id: blog.id) %>" data-turbo-frame="_top">Leer Más</a>
+              </div>
+              <div class="col-6">
+                <p class="card-text text-muted mb-2"><%= truncate(blog.content, length: 20) %></p>
+                <p class="card-text"><small class="text-muted"><%= blog.created_at.strftime('%d de %B de %Y') %></small></p>
+          </div>
             </div>
           </div>
         <% end %>
